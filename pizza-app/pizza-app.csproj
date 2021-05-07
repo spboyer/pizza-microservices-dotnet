@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>pizza_app</RootNamespace>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>bb54dcf9-f3f6-40c8-bafb-87ee81d13eb1</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.5" />
+    <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="4.2.1" />
+    <PackageReference Include="MongoDb.Driver" Version="2.12.2" />
+  </ItemGroup>
+
+</Project>

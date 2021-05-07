@@ -1,0 +1,17 @@
+name: microservice
+
+services:
+- name: specials-api
+  project: specials-api\specials-api.csproj
+- name: toppings-api
+  project: toppings-api\toppings-api.csproj
+- name: pizza-app
+  project: pizza-app\pizza-app.csproj
+- name: redis
+  image: redis
+  bindings:
+  - port: 6379
+    connectionString: "${host}:${port}" 
+- name: redis-cli
+  image: redis
+  args: "redis-cli -h redis MONITOR"

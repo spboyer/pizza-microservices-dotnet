@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Pizza Services App";
+}
+
+<h1>Specials</h1>
+
+<div class="card-columns">
+
+
+    @if (Model.Specials != null)
+    {
+        @foreach (var special in Model.Specials)
+        {
+            <div class="card">
+                <img src="@special.imageUrl" width="489" class="card-img-top" alt="@special.description">
+                <div class="card-body">
+                    <h5 class="card-title">@special.name</h5>
+                    <p class="card-text">@special.description</p>
+                    <a href="#" class="btn btn-primary">Order</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted" style="float: left; font-weight:bold">Price:</small>
+                    <small class="text-muted" style="float: right; font-weight:bold">$@special.GetFormattedBasePrice</small>
+                </div>
+            </div>
+
+        }
+    }
+
+</div>
