@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76485517-7EA0-47BF-9421-E851874E2C1F}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		README.md = README.md
 		tye.yaml = tye.yaml
 	EndProjectSection
 EndProject
