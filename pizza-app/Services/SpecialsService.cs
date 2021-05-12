@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using pizza_app.Model;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace pizza_app.Services
     public class SpecialsService
     {
         private HttpClient Client;
+        private readonly ILogger<SpecialsService> _logger;
 
-        public SpecialsService(HttpClient client, IOptions<Settings> settings)
+        public SpecialsService(HttpClient client, IOptions<Settings> settings, ILogger<SpecialsService> logger)
         {
-            client.BaseAddress = new Uri(settings.Value.SpecialsApi);
+            _logger = logger;
+            client.BaseAddress = settings.Value.SpecialsApi; //new Uri(settings.Value.SpecialsApi);
             Client = client;
         }
 

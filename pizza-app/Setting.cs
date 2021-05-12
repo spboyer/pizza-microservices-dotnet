@@ -7,8 +7,8 @@ namespace pizza_app
 {
     public class Settings
     {
-        public string ToppingsApi { get; set; }
-        public string SpecialsApi { get; set; }
+        public Uri ToppingsApi { get; set; }
+        public Uri SpecialsApi { get; set; }
         public bool IsContained { get; set; }
         public bool Development { get; set; }
     }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -12,9 +13,11 @@ namespace specials_api
     public class SpecialsController : Controller
     {
         private readonly IApplicationDbContext _db;
+        private readonly ILogger<SpecialsController> _logger;
 
-        public SpecialsController(IApplicationDbContext db)
+        public SpecialsController(ILogger<SpecialsController> logger, IApplicationDbContext db)
         {
+            _logger = logger;
             _db = db;
         }
 

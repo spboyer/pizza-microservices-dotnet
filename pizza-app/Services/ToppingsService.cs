@@ -1,4 +1,5 @@
-﻿using pizza_app.Model;
+﻿using Microsoft.Extensions.Options;
+using pizza_app.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace pizza_app.Services
     {
         private HttpClient Client;
 
-        public ToppingsService(HttpClient client, Settings settings)
+        public ToppingsService(HttpClient client, IOptions<Settings> settings)
         {
-            client.BaseAddress = new Uri(settings.SpecialsApi);
+            client.BaseAddress = settings.Value.ToppingsApi; //new Uri(settings.Value.SpecialsApi);
             Client = client;
         }
 

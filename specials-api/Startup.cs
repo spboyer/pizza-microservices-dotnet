@@ -8,8 +8,7 @@ using System;
 using MongoDB.Bson;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Options;
-
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace specials_api
 {
@@ -27,13 +26,14 @@ namespace specials_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ITelemetryInitializer, CloudRoleNameInitializer>();
+            services.AddApplicationInsightsTelemetry();
 
-             services.Configure<Settings>(
+            services.Configure<Settings>(
                   options =>
                   {
-                      options.ConnectionString = Configuration.GetConnectionString("MongoDb");
-                      options.Database = Configuration.GetSection("MongoDb:Database").Value;
-                      options.Container = Configuration.GetConnectionString("Container");
+                      options.ConnectionString = Configuration.GetConnectionString("mongo");
+                      options.Database = Configuration["MongoDb:Database"];
                       options.IsContained = Configuration["DOTNET_RUNNING_IN_CONTAINER"] != null;
                       options.Development = HostingEnvironment.IsDevelopment();
 
@@ -49,10 +49,13 @@ namespace specials_api
                 o.Configuration = Configuration.GetConnectionString("redis");
             });
 
+            // AppConfig Service
+            services.AddAzureAppConfiguration();
+
             // Health Checks
             // https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-5.0
             services.AddHealthChecks()
-            .AddMongoDb(mongodbConnectionString: GetConnectionString(services),
+            .AddMongoDb(mongodbConnectionString: Configuration.GetConnectionString("mongo"),
                 name: "mongo", 
                 failureStatus: HealthStatus.Unhealthy) //adding MongoDb Health Check
             .AddRedis(Configuration.GetConnectionString("redis"), 
@@ -67,6 +70,7 @@ namespace specials_api
             });
 
             services.AddTransient<IApplicationDbContext, SpecialsDbContext>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,6 +83,11 @@ namespace specials_api
 
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "specials_api v1"));
+            }
+            else
+            {
+                // only use in production
+                app.UseAzureAppConfiguration();
             }
 
             app.UseHttpsRedirection();
@@ -113,12 +122,6 @@ namespace specials_api
                     SeedData.Initialize(db);
                 }
             }
-        }
-
-        private string GetConnectionString(IServiceCollection services)
-        {
-            var settings = services.BuildServiceProvider().GetService<IOptions<Settings>>().Value;
-            return settings.ConnectionString;
         }
     }
 }

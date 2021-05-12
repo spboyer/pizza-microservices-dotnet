@@ -1,5 +1,8 @@
 name: microservice
 
+#extensions:
+#- name: zipkin
+
 services:
 - name: specials-api
   project: specials-api\specials-api.csproj
@@ -15,3 +18,12 @@ services:
 - name: redis-cli
   image: redis
   args: "redis-cli -h redis MONITOR"
+- name: mongo
+  image: mongo
+  bindings:
+  - port: 27017
+    connectionString: "mongodb://${host}:${port}"
+#- name: zipkin
+#  image: openzipkin/zipkin
+#  bindings:
+#  - port: 9411

@@ -1,3 +1,4 @@
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,10 +26,13 @@ namespace pizza_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ITelemetryInitializer, CloudRoleNameInitializer>();
+            services.AddApplicationInsightsTelemetry();
+            
             services.Configure<Settings>(
                   options => {
-                      options.SpecialsApi = Configuration["Api:Specials"];
-                      options.ToppingsApi = Configuration["Api:Toppings"];
+                      options.SpecialsApi = Configuration.GetServiceUri("specials-api") ?? new Uri(Configuration["Api:Specials"]);
+                      options.ToppingsApi = Configuration.GetServiceUri("toppings-api") ?? new Uri(Configuration["Api:Toppings"]);
                       options.IsContained = Configuration["DOTNET_RUNNING_IN_CONTAINER"] != null;
                       options.Development = HostingEnvironment.IsDevelopment();
                   });
@@ -36,6 +40,7 @@ namespace pizza_app
             services.AddHttpClient<Services.ToppingsService>();
 
             services.AddRazorPages();
+            //services.AddAzureAppConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +59,7 @@ namespace pizza_app
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //app.UseAzureAppConfiguration();
 
             app.UseRouting();
 

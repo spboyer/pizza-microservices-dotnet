@@ -4,17 +4,7 @@ namespace specials_api
     {
         public string Database { get; set; }
 
-
-        private string _connectionString = string.Empty;
-        public string ConnectionString
-        {
-            get
-            {
-                if (IsContained && Development) { return Container; }
-                return _connectionString;
-            }
-            set { _connectionString = value; }
-        }
+        public string ConnectionString { get; set; }
 
         public string Container { get; set; }
 

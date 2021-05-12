@@ -29,13 +29,10 @@ namespace toppings_api
             services.Configure<Settings>(
                   options =>
                   {
-                      options.ConnectionString = Configuration.GetConnectionString("MongoDb");
+                      options.ConnectionString = Configuration.GetConnectionString("mongo");
                       options.Database = Configuration.GetSection("MongoDb:Database").Value;
-                      options.Container = Configuration.GetConnectionString("Container");
                       options.IsContained = Configuration["DOTNET_RUNNING_IN_CONTAINER"] != null;
-                      options.Development = HostingEnvironment.IsDevelopment();
-
-                      options.ConnectionString = (options.IsContained && options.Development) ? options.Container : options.ConnectionString;
+                      options.Development = HostingEnvironment.IsDevelopment();                      
                   });
 
             // Database Exception Page
@@ -44,7 +41,7 @@ namespace toppings_api
             // Health Check
             // https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-5.0
             services.AddHealthChecks()
-            .AddMongoDb(mongodbConnectionString: GetConnectionString(services),
+            .AddMongoDb(mongodbConnectionString: Configuration.GetConnectionString("mongo"),
                 name: "mongo", 
                 failureStatus: HealthStatus.Unhealthy); //adding MongoDb Health Check
 
@@ -101,12 +98,6 @@ namespace toppings_api
                     SeedData.Initialize(db);
                 }
             }
-        }
-
-        private string GetConnectionString(IServiceCollection services)
-        {
-            var settings = services.BuildServiceProvider().GetService<IOptions<Settings>>().Value;
-            return settings.ConnectionString;
         }
     }
 }
