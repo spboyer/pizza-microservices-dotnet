@@ -3,13 +3,13 @@
     "secrets1": {
       "type": "secrets"
     },
+    "appConfig1": {
+      "type": "appConfig",
+      "connectionId": "ConnectionStrings:AppConfig"
+    },
     "appInsights1": {
       "type": "appInsights",
       "connectionId": "APPINSIGHTS_CONNECTIONSTRING"
-    },
-    "appConfig1": {
-      "type": "appConfig",
-      "connectionId": "AppConfig"
     }
   }
 }
