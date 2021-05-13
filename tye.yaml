@@ -4,6 +4,8 @@ name: microservice
 #- name: zipkin
 
 services:
+- name: yarp-pizza
+  project: yarp-pizza\yarp-pizza.csproj
 - name: specials-api
   project: specials-api\specials-api.csproj
 - name: toppings-api
