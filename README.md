@@ -20,6 +20,6 @@ AppSettings are set to use appsettings.Development.json, user secrets, and Azure
 
  ```
  tye run
- ``
+ ```
 
  To debug a specific service, add `--debug <service_name>` and attach to the process `name.exe` from Visual Studio or VS Code.
