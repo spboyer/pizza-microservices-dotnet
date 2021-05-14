@@ -9,6 +9,7 @@ namespace pizza_app
     {
         public Uri ToppingsApi { get; set; }
         public Uri SpecialsApi { get; set; }
+        public Uri ProxyUri { get; set; }
         public bool IsContained { get; set; }
         public bool Development { get; set; }
     }

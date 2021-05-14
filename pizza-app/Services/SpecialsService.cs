@@ -18,7 +18,7 @@ namespace pizza_app.Services
         public SpecialsService(HttpClient client, IOptions<Settings> settings, ILogger<SpecialsService> logger)
         {
             _logger = logger;
-            client.BaseAddress = settings.Value.SpecialsApi; //new Uri(settings.Value.SpecialsApi);
+            client.BaseAddress = settings.Value.ProxyUri;
             Client = client;
         }
 

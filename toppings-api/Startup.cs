@@ -9,6 +9,7 @@ using MongoDB.Bson;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace toppings_api
 {
@@ -26,8 +27,11 @@ namespace toppings_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ITelemetryInitializer, CloudRoleNameInitializer>();
+            services.AddApplicationInsightsTelemetry();
+
             services.AddCors(options =>
-                options.AddPolicy("proxyPolicy", builder => { builder.AllowAnyOrigin(); }
+                options.AddDefaultPolicy( builder => { builder.AllowAnyOrigin(); }
             ));
 
             services.Configure<Settings>(

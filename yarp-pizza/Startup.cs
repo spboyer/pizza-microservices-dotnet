@@ -30,6 +30,8 @@ namespace yarp_pizza
             services.AddReverseProxy()
                 .LoadFromConfig(Configuration.GetSection("ReverseProxy"))
                 .AddConfigFilter<CustomConfigFilter>();
+
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -33,6 +33,7 @@ namespace pizza_app
                   options => {
                       options.SpecialsApi = Configuration.GetServiceUri("specials-api") ?? new Uri(Configuration["Api:Specials"]);
                       options.ToppingsApi = Configuration.GetServiceUri("toppings-api") ?? new Uri(Configuration["Api:Toppings"]);
+                      options.ProxyUri = Configuration.GetServiceUri("yarp-pizza") ?? new Uri(Configuration["Api:Yarp"]);
                       options.IsContained = Configuration["DOTNET_RUNNING_IN_CONTAINER"] != null;
                       options.Development = HostingEnvironment.IsDevelopment();
                   });
