@@ -23,6 +23,9 @@ namespace yarp_pizza
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+                options.AddPolicy("proxyPolicy", builder => { builder.AllowAnyOrigin(); }
+            ));
             // Initialize the reverse proxy from the "ReverseProxy" section of configuration
             services.AddReverseProxy()
                 .LoadFromConfig(Configuration.GetSection("ReverseProxy"))
@@ -36,15 +39,17 @@ namespace yarp_pizza
             {
                 app.UseDeveloperExceptionPage();
             }
-                        
-            app.UseStaticFiles();
 
+            app.UseCors();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapReverseProxy();
             });
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
         }
     }
 }

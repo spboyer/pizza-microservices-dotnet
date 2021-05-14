@@ -1,0 +1,9 @@
+* Free icon
+https://freeicons.io/free-space-icons/rocket-icon-24668#
+
+* SVG editor
+https://editor.method.ac/
+
+* Sample API
+https://petstore.swagger.io/
+https://idratherbewriting.com/learnapidoc/assets/files/swagger/

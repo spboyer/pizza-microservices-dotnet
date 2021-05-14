@@ -1,0 +1,53 @@
+<svg width="520" height="200" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>Layer 1</title>
+ </g>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="202" width="522" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+  <defs>
+   <style>.cls-1{fill:#073349;}.cls-2{fill:#ffb600;}.cls-3{fill:#ffd400;}.cls-4{fill:#bc350c;}.cls-5{fill:#e84505;}.cls-6{fill:#d7ebf4;}.cls-7{fill:#bfd7e2;}.cls-8{fill:#93afbc;}.cls-9{fill:#2892c7;}.cls-10{fill:#27d6ff;}.cls-11{fill:#349dd1;}.cls-12{fill:#aac7d1;}</style>
+  </defs>
+  <g id="svg_34">
+   <g transform="matrix(2.194787236071093,0,0,2.194787236071093,0,0) " id="svg_7">
+    <g id="svg_8">
+     <circle r="42.5" cy="45.5625" cx="45.5625" class="cls-1" id="svg_10"/>
+     <g id="svg_9">
+      <path id="svg_12" d="m33.5025,55.3825a5.73,5.73 0 0 0 -6.23,1.38c-3.34,3.34 -3.06,10.49 -3.06,10.49s7.21,0.21 10.49,-3.07a5.74,5.74 0 0 0 1.38,-6.23l-2.58,-2.57z" class="cls-2"/>
+      <path id="svg_13" d="m32.5625,57.2625a3.64,3.64 0 0 0 -4,0.87c-2.12,2.12 -1.95,6.67 -1.95,6.67s4.58,0.14 6.67,-2a3.65,3.65 0 0 0 0.88,-4l-1.6,-1.54z" class="cls-3"/>
+      <path id="svg_14" d="m49.4225,52.2325c4.06,3.45 -4.12,13.22 -7.75,17.17a0.82,0.82 0 0 1 -1.41,-0.61c0.2,-2.84 0.36,-7.46 -0.5,-8.94c-1.54,-2.66 7.31,-9.61 9.66,-7.62z" class="cls-4"/>
+      <path id="svg_15" d="m39.2325,42.0425c-3.45,-4.06 -13.22,4.12 -17.17,7.75a0.82,0.82 0 0 0 0.61,1.41c2.84,-0.2 7.46,-0.36 8.94,0.5c2.66,1.54 9.61,-7.32 7.62,-9.66z" class="cls-5"/>
+      <path id="svg_16" d="m59.5025,31.9625a44.74,44.74 0 0 0 -7.17,-6l-21.88,27.06a1,1 0 0 0 0,1.36l3.32,3.31l25.73,-25.73z" class="cls-6"/>
+      <path id="svg_17" d="m33.7725,57.6925l3.34,3.34a1,1 0 0 0 1.35,0l27.1,-21.89s-1.35,-2.46 -6.07,-7.18l-25.72,25.73z" class="cls-7"/>
+      <path id="svg_18" d="m66.4825,37.6325c4.26,-7.72 1.44,-14.07 1.44,-14.07l-7.27,7.27a49.29,49.29 0 0 1 5.83,6.8z" class="cls-4"/>
+      <path id="svg_19" d="m60.6525,30.8125l7.27,-7.25a17.56,17.56 0 0 0 -14.08,1.51a51.93,51.93 0 0 1 6.81,5.76l0,-0.02z" class="cls-5"/>
+      <path id="svg_20" d="m59.5025,31.9625l1.16,-1.16a51.93,51.93 0 0 0 -6.81,-5.76c-0.5,0.27 -1,0.57 -1.51,0.9a51.52,51.52 0 0 1 7.16,6.02z" class="cls-8"/>
+      <path id="svg_21" d="m59.5025,31.9625a47.83,47.83 0 0 1 6.06,7.18c0.34,-0.51 0.64,-1 0.91,-1.51a49.29,49.29 0 0 0 -5.83,-6.82l-1.14,1.15z" class="cls-8"/>
+      <path id="svg_22" d="m31.8425,70.4525a0.82,0.82 0 1 0 0.82,-0.82a0.82,0.82 0 0 0 -0.82,0.82" class="cls-2"/>
+      <path id="svg_23" d="m27.1025,71.9625a0.82,0.82 0 1 0 0.82,-0.82a0.82,0.82 0 0 0 -0.82,0.82" class="cls-2"/>
+      <path id="svg_24" d="m35.7525,67.2725a0.82,0.82 0 1 0 0.82,-0.82a0.82,0.82 0 0 0 -0.82,0.82" class="cls-2"/>
+      <path id="svg_25" d="m21.0125,59.6125a0.82,0.82 0 1 1 0.82,-0.82a0.82,0.82 0 0 1 -0.82,0.82" class="cls-2"/>
+      <path id="svg_26" d="m19.5025,64.3625a0.82,0.82 0 1 1 0.82,-0.82a0.82,0.82 0 0 1 -0.82,0.82" class="cls-2"/>
+      <path id="svg_27" d="m24.1925,55.7125a0.82,0.82 0 1 1 0.82,-0.82a0.82,0.82 0 0 1 -0.82,0.82" class="cls-2"/>
+      <circle id="svg_28" transform="rotate(-45 -11.717498779296879,48.392505645751946) " r="5.31" cy="87.132502" cx="39.8825" class="cls-9"/>
+      <path id="svg_29" d="m49.1625,42.3025a4.25,4.25 0 0 1 6,-6" class="cls-10"/>
+      <path id="svg_30" d="m55.1725,36.2925a4.25,4.25 0 1 1 -6,6" class="cls-11"/>
+      <rect id="svg_31" transform="rotate(45 50.72250366210937,-6.097499847412104) " height="2.03" width="11.18" y="50.1125" x="78.2525" class="cls-12"/>
+      <path id="svg_32" d="m29.0525,62.4025c-0.8,-0.8 0.84,-3.73 3.65,-6.54s5.74,-4.45 6.54,-3.65" class="cls-5"/>
+      <path id="svg_33" d="m39.2525,52.2125c0.8,0.8 -0.84,3.73 -3.65,6.54s-5.74,4.45 -6.54,3.65" class="cls-4"/>
+     </g>
+    </g>
+   </g>
+  </g>
+  <text style="cursor: move;" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="50" id="svg_35" y="70.5" x="212.5" stroke-width="0" stroke="#000" fill="#000000">My Awesome</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="80" id="svg_36" y="162.5" x="213.5" stroke-width="0" stroke="#000" fill="#000000">API</text>
+  <rect id="svg_37" height="332" width="609" y="-47.5" x="-68.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" stroke="null" fill="none"/>
+  <rect id="svg_38" height="36" width="106" y="216.5" x="373.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" stroke="null" fill="none"/>
+  <rect id="svg_39" height="203" width="586" y="-2.5" x="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" stroke="null" fill="none"/>
+ </g>
+</svg>

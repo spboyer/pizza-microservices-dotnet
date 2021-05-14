@@ -1,0 +1,27 @@
+.swagger-ui .topbar .download-url-wrapper input[type=text] {
+    border: 2px solid #77889a;
+}
+
+.swagger-ui .topbar .download-url-wrapper .download-url-button {
+    background: #77889a;
+}
+
+.swagger-ui img {
+    display: none;
+}
+
+.swagger-ui .topbar {
+    background-color: #EDEDED;
+	border-bottom: 2px solid #C1C1C1;
+}
+
+.swagger-ui .topbar .download-url-wrapper .select-label {
+	color: #3B4151;
+}
+
+.swagger-ui .topbar .topbar-wrapper {
+    background-repeat: no-repeat;
+	padding:10px;
+	background-size: contain;
+    background-image: url("/swagger/api-logo.svg");
+}
