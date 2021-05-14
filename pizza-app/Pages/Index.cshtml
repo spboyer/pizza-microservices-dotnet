@@ -5,10 +5,16 @@
     ViewData["Title"] = "Pizza Services App";
 }
 
+
+<h2>Toppings</h2>
+
+<div class="form-group">
+    @Html.DropDownListFor(x => Model.SelectedTopping, new SelectList(Model.Toppings, "Value", "Text"), htmlAttributes: new {  @class = "form-control", id = "Topping"})
+</div>
+
 <h1>Specials</h1>
 
 <div class="card-columns">
-
 
     @if (Model.Specials != null)
     {
@@ -31,3 +37,4 @@
     }
 
 </div>
+

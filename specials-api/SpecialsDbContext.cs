@@ -3,7 +3,6 @@ using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
-using System.Diagnostics;
 
 namespace specials_api
 {
@@ -47,41 +46,9 @@ namespace specials_api
                     return results;
                 }
 
-                // USING TrackDependency method - long hand to telemetry.StartOperation<DependencyTelemetry>
-                //IMongoCollection<PizzaSpecial> results = null;
-                //var timer = StartLogger("GetSpecials");
-                //var success = true;
-                //try
-                //{
-                //    results = _db.GetCollection<PizzaSpecial>("PizzaSpecial");
-                //}
-                //catch (Exception ex)
-                //{
-                //    success = false;
-                //    _telemetry.TrackException(ex);
-                //}
-                //finally
-                //{
-                //    timer.Item1.Stop();
-                //    _telemetry.TrackDependency("Database", "mongo", "specials", timer.Item2, timer.Item1.Elapsed, success);
-                //}
-
-                //return results;
-
             }
         }
-
-        //private Tuple<Stopwatch, DateTime>  StartLogger(string eventName)
-        //{
-        //    var startTime = DateTime.UtcNow;
-        //    var timer = System.Diagnostics.Stopwatch.StartNew();
-        //    _telemetry.TrackEvent(eventName);
-
-        //    return new Tuple<Stopwatch, DateTime>(timer, startTime);
-        //}
     }
-
-   
 
     public interface IApplicationDbContext
     {

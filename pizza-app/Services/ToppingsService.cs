@@ -15,7 +15,7 @@ namespace pizza_app.Services
 
         public ToppingsService(HttpClient client, IOptions<Settings> settings)
         {
-            //client.BaseAddress = settings.Value.ToppingsApi; //new Uri(settings.Value.SpecialsApi);
+            //client.BaseAddress = settings.Value.ToppingsApi;
             client.BaseAddress = settings.Value.ProxyUri;
             Client = client;
         }
