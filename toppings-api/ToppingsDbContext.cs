@@ -23,7 +23,7 @@ namespace toppings_api
             get
             {
                 IMongoCollection<Topping> results = null;
-                using (var operation = _telemetry.StartOperation<DependencyTelemetry>("Database"))
+                using (var operation = _telemetry.StartOperation<DependencyTelemetry>("Toppings.Database"))
                 {
                     operation.Telemetry.Type = "MongoDB";
                     operation.Telemetry.Data = "toppings";

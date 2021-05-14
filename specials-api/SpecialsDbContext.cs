@@ -23,7 +23,7 @@ namespace specials_api
             get
             {
                 IMongoCollection<PizzaSpecial> results = null;
-                using (var operation = _telemetry.StartOperation<DependencyTelemetry>("Database"))
+                using (var operation = _telemetry.StartOperation<DependencyTelemetry>("Specials.Database"))
                 {
                     operation.Telemetry.Type = "MongoDB";
                     operation.Telemetry.Data = "specials";
