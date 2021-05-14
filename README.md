@@ -15,3 +15,11 @@ AppSettings are set to use appsettings.Development.json, user secrets, and Azure
  ```
 
  ## Option #2: .NET Services and Client w/ Docker & Compose
+
+ ## Option #3: Tye (preferred)
+
+ ```
+ tye run
+ ``
+
+ To debug a specific service, add `--debug <service_name>` and attach to the process `name.exe` from Visual Studio or VS Code.
