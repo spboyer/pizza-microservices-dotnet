@@ -1,3 +1,4 @@
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +32,7 @@ namespace yarp_pizza
                 .LoadFromConfig(Configuration.GetSection("ReverseProxy"))
                 .AddConfigFilter<CustomConfigFilter>();
 
+            services.AddSingleton<ITelemetryInitializer, CloudRoleNameInitializer>();
             services.AddApplicationInsightsTelemetry();
         }
 

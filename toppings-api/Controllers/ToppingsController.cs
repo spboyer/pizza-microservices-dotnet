@@ -28,7 +28,7 @@ namespace toppings_api
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Topping>>> GetToppings(TelemetryClient telemetry, [FromServices] IDistributedCache cache)
+        public async Task<ActionResult<List<Topping>>> GetToppings([FromServices] IDistributedCache cache)
         {
             var toppings = await GetFromCache(cache);
 
@@ -58,7 +58,7 @@ namespace toppings_api
                 {
                     await cache.SetStringAsync("toppings", json, new DistributedCacheEntryOptions
                     {
-                        AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(15)
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(60)
                     });
                     operation.Telemetry.Success = true;
 
@@ -94,12 +94,13 @@ namespace toppings_api
                     operation.Telemetry.Success = false;
 
                     _telemetry.TrackException(ex);
+
+                    toppings = null;
+
                 }
                 finally
                 {
                     operation.Telemetry.Stop();
-
-                    toppings = new List<Topping>();
                 }
 
                 return toppings;
