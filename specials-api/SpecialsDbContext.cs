@@ -30,6 +30,7 @@ namespace specials_api
                     try
                     {
                         results = _db.GetCollection<PizzaSpecial>("PizzaSpecial");
+                        operation.Telemetry.Success = true;
                     }
                     catch (Exception ex)
                     {
@@ -39,7 +40,6 @@ namespace specials_api
                     }
                     finally
                     {
-                        operation.Telemetry.Success = true;
                         operation.Telemetry.Stop();
                     }
 

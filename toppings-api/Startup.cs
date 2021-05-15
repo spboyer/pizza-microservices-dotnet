@@ -53,6 +53,12 @@ namespace toppings_api
                 failureStatus: HealthStatus.Unhealthy); //adding MongoDb Health Check
 
             services.AddControllers();
+
+            services.AddStackExchangeRedisCache(o =>
+            {
+                o.Configuration = Configuration.GetConnectionString("redis");
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "toppings_api", Version = "v1" });

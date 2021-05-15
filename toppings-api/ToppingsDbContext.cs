@@ -30,6 +30,7 @@ namespace toppings_api
                     try
                     {
                         results = _db.GetCollection<Topping>("Toppings");
+                        operation.Telemetry.Success = true;
                     }
                     catch (Exception ex)
                     {
@@ -39,7 +40,6 @@ namespace toppings_api
                     }
                     finally
                     {
-                        operation.Telemetry.Success = true;
                         operation.Telemetry.Stop();
                     }
 
