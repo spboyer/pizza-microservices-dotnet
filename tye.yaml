@@ -8,6 +8,7 @@ services:
   project: yarp-pizza\yarp-pizza.csproj
 - name: specials-api
   project: specials-api\specials-api.csproj
+  replicas: 2
 - name: toppings-api
   project: toppings-api\toppings-api.csproj
 - name: pizza-app

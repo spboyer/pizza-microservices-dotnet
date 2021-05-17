@@ -40,8 +40,6 @@ namespace specials_api
                       options.Database = Configuration["MongoDb:Database"];
                       options.IsContained = Configuration["DOTNET_RUNNING_IN_CONTAINER"] != null;
                       options.Development = HostingEnvironment.IsDevelopment();
-
-                      options.ConnectionString = (options.IsContained && options.Development) ? options.Container : options.ConnectionString;
                   });
 
             // Database Exception Page
