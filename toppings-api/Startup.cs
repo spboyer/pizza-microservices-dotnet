@@ -9,6 +9,7 @@ using MongoDB.Bson;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Extensions.Logging.ApplicationInsights;
 
 namespace toppings_api
 {
@@ -31,6 +32,7 @@ namespace toppings_api
             ));
 
             services.AddSingleton<ITelemetryInitializer, CloudRoleNameInitializer>();
+
             services.AddApplicationInsightsTelemetry();
 
             services.Configure<Settings>(

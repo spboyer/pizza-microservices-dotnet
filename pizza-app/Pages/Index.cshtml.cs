@@ -44,6 +44,7 @@ namespace pizza_app.Pages
 
             try
             {
+                _logger.LogInformation("Getting toppings list");
                 var toppings = await _toppingsService.GetToppings();
                 Toppings = toppings.OrderBy(t => t.name)
                     .Select(i =>
