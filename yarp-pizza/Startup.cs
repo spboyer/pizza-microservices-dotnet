@@ -5,10 +5,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace yarp_pizza
 {
@@ -34,6 +30,19 @@ namespace yarp_pizza
 
             services.AddSingleton<ITelemetryInitializer, CloudRoleNameInitializer>();
             services.AddApplicationInsightsTelemetry();
+            
+            services.AddHttpContextAccessor();
+            // Interface that collects general metrics about the proxy
+
+            services.AddSingleton<IProxyMetricsConsumer, ProxyMetricsConsumer>();
+
+            // Registration of a consumer to events for proxy telemetry
+            services.AddTelemetryConsumer<ProxyTelemetryConsumer>();
+
+            // Registration of a consumer to events for HttpClient telemetry
+            // Note: this depends on changes implemented in .NET 5
+            services.AddTelemetryConsumer<HttpClientTelemetryConsumer>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +52,8 @@ namespace yarp_pizza
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UsePerRequestMetricCollection();
 
             app.UseCors();
             app.UseRouting();
