@@ -7,15 +7,19 @@ using Yarp.ReverseProxy.Abstractions;
 using Yarp.ReverseProxy.RuntimeModel;
 using Yarp.ReverseProxy.Service;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace yarp_pizza
 {
     public class CustomConfigFilter : IProxyConfigFilter
     {
         IConfiguration Configuration;
-        public CustomConfigFilter(IConfiguration configuration)
+        ILogger<CustomConfigFilter> _logger;
+
+        public CustomConfigFilter(IConfiguration configuration, ILogger<CustomConfigFilter> logger)
         {
             Configuration = configuration;
+            _logger = logger;
         }
 
         // Matches {{env_var_name}} or {{my-name}} or {{123name}} etc.
@@ -43,8 +47,11 @@ namespace yarp_pizza
 
                     if (string.IsNullOrWhiteSpace(newAddress.AbsoluteUri))
                     {
+                        _logger.LogError($"Configuration Filter Error: Substitution for '{lookup}' in cluster '{d.Key}' not found as an environment variable.");
                         throw new System.ArgumentException($"Configuration Filter Error: Substitution for '{lookup}' in cluster '{d.Key}' not found as an environment variable.");
                     }
+
+                    _logger.LogInformation($"Configuration Filter: Substitution for '{lookup}' updated to '{newAddress.AbsoluteUri}");
 
                     // using c# 9 "with" to clone and initialize a new record
                     var modifiedDest = d.Value with { Address = newAddress.AbsoluteUri };
