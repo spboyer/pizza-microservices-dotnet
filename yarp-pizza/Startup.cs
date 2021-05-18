@@ -31,17 +31,17 @@ namespace yarp_pizza
             services.AddSingleton<ITelemetryInitializer, CloudRoleNameInitializer>();
             services.AddApplicationInsightsTelemetry();
             
-            services.AddHttpContextAccessor();
-            // Interface that collects general metrics about the proxy
+            //services.AddHttpContextAccessor();
+            //// Interface that collects general metrics about the proxy
 
-            services.AddSingleton<IProxyMetricsConsumer, ProxyMetricsConsumer>();
+            //services.AddSingleton<IProxyMetricsConsumer, ProxyMetricsConsumer>();
 
-            // Registration of a consumer to events for proxy telemetry
-            services.AddTelemetryConsumer<ProxyTelemetryConsumer>();
+            //// Registration of a consumer to events for proxy telemetry
+            //services.AddTelemetryConsumer<ProxyTelemetryConsumer>();
 
-            // Registration of a consumer to events for HttpClient telemetry
-            // Note: this depends on changes implemented in .NET 5
-            services.AddTelemetryConsumer<HttpClientTelemetryConsumer>();
+            //// Registration of a consumer to events for HttpClient telemetry
+            //// Note: this depends on changes implemented in .NET 5
+            //services.AddTelemetryConsumer<HttpClientTelemetryConsumer>();
 
         }
 
