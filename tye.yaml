@@ -1,7 +1,8 @@
 name: microservice
 
-#extensions:
-#- name: zipkin
+extensions:
+- name: dapr
+  components-path: #not sure what goes here yet
 
 services:
 - name: yarp-pizza
@@ -26,7 +27,3 @@ services:
   bindings:
   - port: 27017
     connectionString: "mongodb://${host}:${port}"
-#- name: zipkin
-#  image: openzipkin/zipkin
-#  bindings:
-#  - port: 9411
