@@ -43,7 +43,7 @@ namespace yarp_pizza
                 {
                     // Get the name of the env variable from the destination and lookup value
                     var lookup = _exp.Matches(origAddress)[0].Groups[1].Value;
-                    var newAddress = Configuration.GetServiceUri(lookup);
+                    var newAddress = Configuration.GetServiceUri(lookup) ?? new Uri("http://localhost");
 
                     if (string.IsNullOrWhiteSpace(newAddress.AbsoluteUri))
                     {
